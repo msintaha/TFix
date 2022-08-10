@@ -103,19 +103,17 @@ class DataPoint:
     def GetT5Representation(self, include_warning: bool) -> Tuple[str, str]:
         if include_warning:
             inputs = (
-                "fix "
-                + self.linter_report.rule_id
-                + " "
-                + self.linter_report.message
-                + " "
-                + self.warning_line
-                + ":\n"
-                + self.source_code
-                + " </s>"
+                str(self.linter_report.rule_id)
+                + "%$%"
+                + str(self.linter_report.message)
+                + "%$%"
+                + str(self.warning_line)
+                + "%$%"
+                + str(self.source_code)
             )
         else:
             inputs = "fix " + self.source_code + " </s>"
-        outputs = self.target_code + " </s>"
+        outputs = self.target_code
         return inputs, outputs
 
 
