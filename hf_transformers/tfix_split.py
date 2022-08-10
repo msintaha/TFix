@@ -88,7 +88,7 @@ for data in zip(train_inputs, train_labels):
 
 print('TRAIN', len(train_data), 'TEST', len(test_data))
 
-# with open('train_data.json', 'w') as f:
-#     json.dump(train_data, f, indent=4)
-# with open('test_data.json', 'w') as f:
-#     json.dump(test_data, f, indent=4)
+with open('train_data.json', 'w') as f:
+    json.dump(train_data, f, indent=4)
+with open('test_data.json', 'w') as f:
+    json.dump(test_data, f, indent=4)
