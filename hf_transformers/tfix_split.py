@@ -64,10 +64,10 @@ for k in rule_ids:
     for data in zip(test_inputs[k], test_labels[k]):
         input = data[0]
         output = data[1]
-        [rule_id, message, warning_line, source_code] = input.split("%$%")
+        [rule_id, message, evidence, warning_line, source_code] = input.split("%$%")
         test_data.append({
             'rule_id': rule_id,
-            'evidence': message,
+            'evidence': evidence,
             'message': message,
             'source_code': source_code.strip(),
             'target_code': output.strip()
@@ -77,10 +77,10 @@ train_data = []
 for data in zip(train_inputs, train_labels):
     input = data[0]
     output = data[1]
-    [rule_id, message, warning_line, source_code] = input.split("%$%")
+    [rule_id, message, evidence, warning_line, source_code] = input.split("%$%")
     train_data.append({
         'rule_id': rule_id,
-        'evidence': message,
+        'evidence': evidence,
         'message': message,
         'source_code': source_code.strip(),
         'target_code': output.strip()
@@ -88,7 +88,7 @@ for data in zip(train_inputs, train_labels):
 
 print('TRAIN', len(train_data), 'TEST', len(test_data))
 
-with open('train_data.json', 'w') as f:
-    json.dump(train_data, f, indent=4)
-with open('test_data.json', 'w') as f:
-    json.dump(test_data, f, indent=4)
+# with open('train_data.json', 'w') as f:
+#     json.dump(train_data, f, indent=4)
+# with open('test_data.json', 'w') as f:
+#     json.dump(test_data, f, indent=4)

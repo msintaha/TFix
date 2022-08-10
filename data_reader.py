@@ -107,6 +107,8 @@ class DataPoint:
                 + "%$%"
                 + str(self.linter_report.message)
                 + "%$%"
+                + str(self.linter_report.evidence)
+                + "%$%"
                 + str(self.warning_line)
                 + "%$%"
                 + str(self.source_code)
