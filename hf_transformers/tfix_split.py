@@ -38,8 +38,8 @@ parser.add_argument("-pt", "--pre-trained", type=boolean_string, default=True)
 args = parser.parse_args()
 
 # Read and prepare data
-data = GetDataAsPython("/Users/miftasintaha/Downloads/data_and_models/data/data_autofix_tracking_repo_specific_final.json")
-data_eslint = GetDataAsPython("/Users/miftasintaha/Downloads/data_and_models/data/data_autofix_tracking_eslint_final.json")
+data = GetDataAsPython("data_and_models/data/data_autofix_tracking_repo_specific_final.json")
+data_eslint = GetDataAsPython("data_and_models/data/data_autofix_tracking_eslint_final.json")
 data += data_eslint
 all_warning_types = extract_warning_types(data)
 if args.error_type != "":
