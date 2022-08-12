@@ -64,26 +64,34 @@ for k in rule_ids:
     for data in zip(test_inputs[k], test_labels[k]):
         input = data[0]
         output = data[1]
-        [rule_id, message, evidence, warning_line, source_code] = input.split("%$%")
+        [rule_id, message, evidence, warning_line, source_code, source_file] = input.split("%$%")
+        [target_code, target_file] = output.split("%$%")
         test_data.append({
             'rule_id': rule_id,
             'evidence': evidence,
             'message': message,
             'source_code': source_code.strip(),
-            'target_code': output.strip()
+            'target_code': target_code.strip(),
+            'warning_line': warning_line.strip(),
+            'source_file': source_file.strip(),
+            'target_file': target_file.strip()
         })
 
 train_data = []
 for data in zip(train_inputs, train_labels):
     input = data[0]
     output = data[1]
-    [rule_id, message, evidence, warning_line, source_code] = input.split("%$%")
+    [rule_id, message, evidence, warning_line, source_code, source_file] = input.split("%$%")
+    [target_code, target_file] = output.split("%$%")
     train_data.append({
         'rule_id': rule_id,
         'evidence': evidence,
         'message': message,
         'source_code': source_code.strip(),
-        'target_code': output.strip()
+        'target_code': target_code.strip(),
+        'warning_line': warning_line.strip(),
+        'source_file': source_file.strip(),
+        'target_file': target_file.strip()
     })
 
 print('TRAIN', len(train_data), 'TEST', len(test_data))

@@ -112,10 +112,12 @@ class DataPoint:
                 + str(self.warning_line)
                 + "%$%"
                 + str(self.source_code)
+                + "%$%"
+                + str(self.source_file)
             )
         else:
             inputs = "fix " + self.source_code + " </s>"
-        outputs = self.target_code
+        outputs = self.target_code + "%$%" + self.target_file
         return inputs, outputs
 
 
