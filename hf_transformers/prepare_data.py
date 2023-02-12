@@ -35,9 +35,12 @@ def split_filtered(filtered_data: List[DataPoint], include_warning: bool, model_
     ]
 
     test_size = 0.1 if len(inputs) >= 10 else 1 / len(inputs)
+    print(f"test_size={test_size}")
     train_inputs, test_inputs, train_labels, test_labels = train_test_split(
         inputs, outputs, shuffle=True, random_state=seed, test_size=test_size
     )
+    print(f"train_inputs length={len(train_inputs)}")
+    print(f"test_inputs length={len(test_inputs)}")
 
     train_info, test_info = train_test_split(
         filtered_data, shuffle=True, random_state=seed, test_size=test_size
